@@ -1,0 +1,15 @@
+name: RandomItem
+main: LDX\RandomItem\Main
+version: 4.0
+api: [1.1.0]
+author: LDX
+load: POSTWORLD
+commands:
+  gift:
+    permission: randomitem.gift
+    description: Gives a random item
+    usage: /gift [player]
+permissions:
+  randomitem.gift:
+    description: Allows players to use the gift command
+    default: op
