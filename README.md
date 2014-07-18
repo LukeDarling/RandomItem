@@ -1,4 +1,0 @@
-RandomItem
-==========
-
-A PocketMine plugin
