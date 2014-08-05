@@ -1,5 +1,7 @@
 <?php
+
 namespace LDX\RandomItem;
+
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\Player;
@@ -7,6 +9,7 @@ use pocketmine\plugin\PluginBase;
 use pocketmine\Server;
 use pocketmine\utils\TextFormat;
 use pocketmine\item\Item;
+
 class Main extends PluginBase {
   public function onLoad() {
     $this->getLogger()->info(TextFormat::YELLOW . "Loading RandomItem v4.0 by LDX...");
