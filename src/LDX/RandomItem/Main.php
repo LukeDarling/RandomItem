@@ -32,6 +32,10 @@ class Main extends PluginBase {
       if($this->getServer()->getPlayer($args[0]) instanceof Player) {
         $d = $this->generateData();
         $p = $this->getServer()->getPlayer($args[0]);
+        if(!($p instanceof Player)){
+          $issuer->sendMessage("Player $args[0] isn't online!");
+          return true;
+        }
         $this->give($p,$d);
         $p->sendMessage("Random item given! (" . $data["id"] . ":" . $data["meta"] . ")");
       } else {
