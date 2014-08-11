@@ -8,9 +8,6 @@ use pocketmine\Server;
 use pocketmine\utils\TextFormat;
 use pocketmine\item\Item;
 class Main extends PluginBase {
-  public function onLoad() {
-    $this->getLogger()->info(TextFormat::YELLOW . "Loading RandomItem v4.0 by LDX...");
-  }
   public function onEnable() {
     if(!file_exists($this->getDataFolder() . "config.yml")) {
       @mkdir($this->getDataFolder());
@@ -24,8 +21,7 @@ class Main extends PluginBase {
       $this->itemdata[$num] = array("id" => $r[0],"meta" => $r[1],"amount" => $r[2]);
       $num++;
     }
-    $this->getServer()->getScheduler()->scheduleRepeatingTask(new Gift($this),$t);
-    $this->getLogger()->info(TextFormat::YELLOW . "Enabling RandomItem...");
+    $this->getServer()->getScheduler()->scheduleRepeatingTask(new Gift($this), $t);
   }
   public function onCommand(CommandSender $issuer,Command $cmd,$label,array $args) {
     if((strtolower($cmd->getName()) == "gift") && isset($args[0])) {
@@ -65,8 +61,5 @@ class Main extends PluginBase {
   public function generateData() {
     return $this->itemdata[rand(0,(count($this->itemdata) - 1))];
   }
-  public function onDisable() {
-    $this->getLogger()->info(TextFormat::YELLOW . "Disabling RandomItem...");
-  }
 }
-?>
+
