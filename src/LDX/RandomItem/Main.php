@@ -26,6 +26,10 @@ class Main extends PluginBase {
   public function onCommand(CommandSender $issuer,Command $cmd,$label,array $args) {
     if((strtolower($cmd->getName()) == "gift") && isset($args[0])) {
       if(($p = $this->getServer()->getPlayer($args[0])) instanceof Player) {
+        if(!($p->getInventory() instanceof Inventory)){
+          $player->sendMessage("Player not spawned!");
+          return true;
+        }
         $d = $this->generateData();
         $this->give($p,$d);
         $p->sendMessage("Random item given! (" . $data["id"] . ":" . $data["meta"] . ")");
