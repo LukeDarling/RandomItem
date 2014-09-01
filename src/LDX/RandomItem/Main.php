@@ -42,8 +42,10 @@ class Main extends PluginBase {
     }
   }
   public function give($p,$data) {
-    $item = new Item($data["id"],$data["meta"],$data["amount"]);
-    $p->getInventory()->addItem($item);
+    if($p instanceof Player) {
+      $item = new Item($data["id"],$data["meta"],$data["amount"]);
+      $p->getInventory()->addItem($item);
+    }
   }
   public function giveAll() {
     $data = $this->generateData();
