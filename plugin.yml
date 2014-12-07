@@ -1,6 +1,6 @@
 name: RandomItem
 main: LDX\RandomItem\Main
-version: 4.1
+version: 4.2
 api: [1.0.0,1.1.0,1.2.0,1.3.0,1.4.0]
 author: LDX
 load: POSTWORLD
@@ -10,6 +10,19 @@ commands:
     description: Gives a random item
     usage: /gift [player]
 permissions:
-  randomitem.gift:
-    description: Allows players to use the gift command
-    default: op
+  randomitem:
+    description: Allows access to all RandomItem features.
+    default: false
+    children:
+      randomitem.gift:
+        description: Allows players to use the gift command.
+        default: op
+      randomitem.ontimer:
+        description: Allows players to recieve an item when a timed item is given.
+        default: true
+      randomitem.ongift:
+        description: Allows players to recieve an item when the gift command is used.
+        default: true
+      randomitem.onkill:
+        description: Allows players to recieve an item when they kill another player.
+        default: true
