@@ -17,12 +17,9 @@ permissions:
       randomitem.gift:
         description: Allows players to use the gift command.
         default: op
-      randomitem.ontimer:
-        description: Allows players to recieve an item when a timed item is given.
+      randomitem.receive:
+        description: Allows players to receive random items.
         default: true
-      randomitem.ongift:
-        description: Allows players to recieve an item when the gift command is used.
-        default: true
-      randomitem.onkill:
-        description: Allows players to recieve an item when they kill another player.
+      randomitem.kill:
+        description: Allows players to receive an item when they kill another player.
         default: true
