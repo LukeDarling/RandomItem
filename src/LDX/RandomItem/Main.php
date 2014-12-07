@@ -10,7 +10,9 @@ use pocketmine\item\Item;
 class Main extends PluginBase {
   public function onEnable() {
     if(!file_exists($this->getDataFolder() . "config.yml")) {
-      @mkdir($this->getDataFolder());
+      if(!is_dir($this->getDataFolder())) {
+        mkdir($this->getDataFolder());
+      }
       file_put_contents($this->getDataFolder() . "config.yml",$this->getResource("config.yml"));
     }
     $c = yaml_parse(file_get_contents($this->getDataFolder() . "config.yml"));
@@ -42,7 +44,7 @@ class Main extends PluginBase {
     }
   }
   public function give($p,$data) {
-    if($p instanceof Player) {
+    if($p instanceof Player && ($p->hasPermission("randomitem") || $p->hasPermission("randomitem.receive"))) {
       $item = new Item($data["id"],$data["meta"],$data["amount"]);
       $p->getInventory()->addItem($item);
     }
