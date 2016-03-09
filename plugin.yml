@@ -21,6 +21,3 @@ permissions:
       randomitem.receive:
         description: Allows players to receive random items.
         default: true
-      randomitem.kill:
-        description: Allows players to receive an item when they kill another player.
-        default: true

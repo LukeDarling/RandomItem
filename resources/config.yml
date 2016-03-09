@@ -17,6 +17,3 @@ Items:
 - "297:0:1"
 - "352:0:1"
 - "35:0:1"
-
-# Should players recieve an item when they kill another player?
-Kill: false
